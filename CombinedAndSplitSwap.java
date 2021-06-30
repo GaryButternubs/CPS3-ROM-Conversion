@@ -3,19 +3,11 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -299,7 +291,7 @@ class SplitToCombined implements ActionListener
 
 		for(int a = 0; a < splitAmt; a++)
 		{
-			file = new File(path + "/" + split[start + a]);
+			file = new File(path + "/" + split[start][a]);
 			byte[] splitFile = new byte[(int) file.length()];
 
 			FileChannel rwChannel = new RandomAccessFile(file, "rw").getChannel();
@@ -324,7 +316,7 @@ class SplitToCombined implements ActionListener
 
 		for(int a = 0; a < 2; a++)
 		{
-			file = new File(path + "/" + split[start + a]);
+			file = new File(path + "/" + split[start][a]);
 			byte[] splitFile = new byte[(int) file.length()];
 
 			FileChannel rwChannel = new RandomAccessFile(file, "rw").getChannel();
@@ -342,7 +334,7 @@ class SplitToCombined implements ActionListener
 		{
 			for(int a = 2; a < 4; a++)
 			{
-				file = new File(path + "/" + split[start + a]);
+				file = new File(path + "/" + split[start][a]);
 				byte[] splitFile = new byte[(int) file.length()];
 
 				FileChannel rwChannel = new RandomAccessFile(file, "rw").getChannel();
