@@ -116,7 +116,7 @@ class CombinedToSplit implements ActionListener
 				{
 					try 
 					{
-						if(a < 2)
+						if((combined.length > 6 && a < 2) || (combined.length <= 6 && a < 1))
 							fileDivide = splitDataFile(combinedPath + "/" + combined[a], split[a].length);
 
 						else
@@ -233,6 +233,9 @@ class SplitToCombined implements ActionListener
 
 		combined = combinedSet[gameSelected];
 		split = splitSet[gameSelected];
+		
+		for(String combinedFile : combined)
+			System.out.println(combinedFile);
 
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		JOptionPane.showMessageDialog(null, "Please select the directory where the Split ROM is located");
@@ -257,7 +260,7 @@ class SplitToCombined implements ActionListener
 				{
 					try 
 					{
-						if(a < 2)
+						if((combined.length > 6 && a < 2) || (combined.length <= 6 && a < 1))
 							wholeFile = combineDataFile(splitPath, a, split[a].length);
 
 						else
